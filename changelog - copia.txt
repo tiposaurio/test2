@@ -1,0 +1,214 @@
+SmartSVN 9.1.3 (2016-11-15)
+===========================
+New Features, Improvements
+--------------------------
+- Revision chooser (e.g. in Merge dialog): added system property
+  "smartsvn.revisionChooser.maxRevisions" to limit the maximum displayed
+  revision count
+
+Fixed Bugs
+----------
+- Commit: modified files in copies directories were not reported (and hence
+  not committed)
+- Evaluation notification: "Purchase" link did not work
+- Explorer integration: shellnotify.exe: handles were constantly rising if
+  %APPDATA%\SmartSVN did not exist
+- Repository Browser, Move/Copy: error "Cannot accept non-LF line endings in
+  'svn:log' property" for multi-line commit message
+- Update: when updating a single file, the revision selector showed parent
+  directory's revisions instead of those from the file
+
+
+SmartSVN 9.1.2 (2016-07-06)
+===========================
+New Features, Improvements
+--------------------------
+- slightly improved the setup process for enterprise customers
+- Linux: screen zoom level is now detected (for HiDPI screens)
+
+Fixed Bugs
+----------
+- Explorer integration: possible native crash
+- Output: Copy was not possible any more
+- Refresh: internal error if an external was locked
+- possible internal error if aquiring a lock file failed
+- shellnotify.exe: handles were constantly rising
+- <settings-dir>/svn-tmp might grow over time (with each new SVN build)
+- GUI:
+  - Compare: possible internal error applying a selection
+  - GTK3: first tab might not get painted correctly
+  - tray icon did not use HiDPI icon
+
+
+SmartSVN 9.1.1 (2016-05-06)
+===========================
+New Features, Improvements
+--------------------------
+- SVN 1.9.4 binaries
+
+Fixed Bugs
+----------
+- About dialog with incorrect painting on zoom levels != 100% and 200%
+- Authentication: problems with challenge-response (keyboard-interactive)
+- Commit: when invoked from Explorer integration and no message has been
+  entered, the occurring reminder dialog was not parent modal causing an
+  internal error when the reminder dialog was closed after the commit wizard
+- Refresh (Linux): "smartsvn.filemonitor.exclude" was broken
+- Windows installer: dictionaries were missing
+- noisy console output
+
+
+SmartSVN 9.1.0 (2016-03-11)
+===========================
+Notable New Features, Improvements over SmartSVN 9
+--------------------------------------------------
+- HiDPI support
+- Windows Explorer integration: reliable overlay icon update
+- JIRA integration:
+  - support for version 7
+  - support for non-classic workflows
+  - tries to detect whether JIRA installation is too old
+- Compare/Conflict Solver: ability to apply multiple selected lines
+- Pre-commit hook:
+  - working copy directory is passed as first parameter, temp file containing
+    all committed files paths as second parameter
+  - Windows: .cmd files are preferred over .bat files
+- Linux: Move to Trash uses "/usr/bin/trash-put" (might be installed using
+  "apt-get install trash-cli")
+
+
+SmartSVN 9.1 RC 1 (2016-03-03)
+==============================
+New Features, Improvements
+--------------------------
+- Compare/Conflict Solver: ability to apply multiple selected lines
+
+Fixed Bugs
+----------
+- Annotate: internal error when specifying invalid (too high) revision
+- Output: "modified" (red) icons were not used
+- Refresh: missing file did not show up after renaming outside SmartSVN
+- View | Table Columns: "remember as default" did not remember width, but just
+  order
+
+
+SmartSVN 9.1 preview 6 (2016-02-15)
+===================================
+New Features, Improvements
+--------------------------
+- Pre-commit hook:
+  - working copy directory is passed as first parameter, temp file containing
+    all committed files paths as second parameter
+  - Windows: .cmd files are preferred over .bat files
+- Working Copy Upgrade: output view shows upgraded roots and externals
+
+Fixed Bugs
+----------
+- Commit: suggested to unlock files if no locked file has been committed
+- Refresh: copied-replaced entries occurred as "history-scheduled" instead of
+  "copied"
+- Renaming a case-only-changed file (Windows) did not succeed
+- Shell integration (Windows): context menu items were not shown correctly
+
+
+SmartSVN 9.1 preview 5 (2016-01-29)
+===================================
+New Features, Improvements
+--------------------------
+- Conflict Solver (external tool): ability to pass speaking names
+- File Monitor (Linux): notification contains now link to resolve "inotify"
+  problem
+- JIRA integration:
+  - support for non-classic workflows
+  - tries to detect whether JIRA installation is too old
+- Log Cache: uses URL and UUID to distinguish caches
+- Status Cache (Windows): tries to detect appropriate SVN config file and
+  honors its global ignores
+
+Fixed Bugs
+----------
+- Conflict Solver: odd connector display on HiDPI monitors
+- Linux: fixed warning ".../linux-x86/libjnidispatch.so which might have
+  disabled stack guard" when launching on 64-bit Linux
+- Move: internal error invoking on 2 directories of different working copies
+- Refresh (after commands): remote state not properly updated after modifying
+  svn:externals
+
+
+SmartSVN 9.1 preview 4 (2015-12-22)
+===================================
+New Features, Improvements
+--------------------------
+- based on SVN 1.9.3
+- About dialog: ability to register license
+- Commit, JIRA integration
+  - Get Issue from JIRA: remembers sort order
+  - Resolve dialog: allows to resolve for multiple versions
+- Ignore: works on multiple untracked directories
+- Linux: Move to Trash uses "/usr/bin/trash-put" (might be installed using
+  "apt-get install trash-cli")
+- Preferences, Revision Graph: unused colors removed
+- Refresh: option to cleanup locked roots
+- smartsvn.vmoptions is created automatically
+- URLs with passwords are disallowed
+
+Fixed Bugs
+----------
+- Annotate, Revision | Show Revision Changes should only be applicable for
+  "full" blame
+- Create Module: was broken (regression)
+- Explorer integration: possible hangs
+- File monitor:
+  - Linux:
+    - /tmp/com.syntevo.sc*-directories remained and cumulated
+    - possible update problems because file monitor events were collected
+      too late
+  - OS X: problems after directory rename (e.g. saving from XCode)
+- Fix (or Revert), Case Changed file: internal error if file name is just
+  1 character long
+- Log: assertion opening Compare on commit
+- OS X: odd-looking notification icon
+- Revision Graph: merge source display was broken
+- Startup: possible recurring "passwords could not be read" errors
+- Status Cache (Windows): possible endless loop
+
+
+SmartSVN 9.1 preview 3 (2015-11-05)
+===================================
+New Features, Improvements
+--------------------------
+- HiDPI support
+
+Fixed Bugs
+----------
+- ShellNotify: handles constantly rising
+
+
+SmartSVN 9.1 preview 2 (2015-10-14)
+===================================
+New Features, Improvements
+--------------------------
+- Add Tag: show info if fixing revision is not possible
+- Update check on startup
+
+Fixed Bugs
+----------
+- Bug handling: limited number of max. bug*.zip files per session
+- Changes preview: if single modified file is committed, the next modified file
+  will keep the position instead of scrolling to 1st change
+- Changeset related synchronization issues
+- Compare connector (Win10): scrolling with the mouse scrolls two changes
+- Drag and drop (Linux): possible internal error
+- Edit|Customize (Linux): table rows became too flat
+- File completion: internal error after deleting text
+- GUI: table rows were too high on GTK
+- Launching SmartSVN does not brought the window to front
+- Windows Explorer integration: possible internal error related to symlinks
+  (mklink)
+
+
+SmartSVN 9.1 preview 1 (2015-08-26)
+===================================
+New Features, Improvements
+--------------------------
+- Windows Explorer integration: reliable overlay icon update
